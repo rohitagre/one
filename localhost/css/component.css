@@ -1,0 +1,204 @@
+
+*, *:after, *:before {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.clearfix:before, .clearfix:after {
+    content: '';
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+body {
+    background: #333;
+    color: #383a3c;
+    font-weight: 400;
+    font-size: 1em;
+    line-height: 1.25;
+    font-family: 'Raleway', Calibri, Arial, sans-serif;
+}
+
+a, button {
+    outline: none;
+}
+
+a {
+    color: #566473;
+    text-decoration: none;
+}
+
+    a:hover, a:focus {
+        color: #34495e;
+    }
+
+p.ref {
+    text-align: center;
+    padding: 2em 1em;
+}
+
+/* Header */
+.pipes {
+    -webkit-transition: opacity 2s;
+    transition: opacity 2s;
+}
+
+.large-header {
+    position: relative;
+    width: 100%;
+    background: #333;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center center;
+    z-index: 1;
+}
+
+.pipes .large-header {
+    background-image: url('../img/pipes-bg.jpg');
+}
+
+.main-title {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    color: #f9f1e9;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate3d(-50%,-50%,0);
+    transform: translate3d(-50%,-50%,0);
+}
+
+.pipes .main-title {
+    text-transform: uppercase;
+    font-size: 4.2em;
+    letter-spacing: 0.1em;
+}
+
+.main-title .thin {
+    font-weight: 300;
+    font-family: Quicksand;
+}
+
+#pipes-canvas {
+    background: rgba(0,0,0,0.4);
+}
+
+/* Border */
+section.links {
+    font-size: 14px;
+    font-weight: 800;
+    font-family: Raleway;
+    text-transform: uppercase;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+    bottom: 65px;
+    z-index: 1;
+    overflow: hidden;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    text-align: center;
+    width: 100%;
+    line-height: 35px;
+    letter-spacing: 0.1em;
+}
+
+    section.links a {
+        position: relative;
+        display: inline-block;
+        outline: none;
+        vertical-align: bottom;
+        text-decoration: none;
+        white-space: nowrap;
+        color: #fff;
+        padding: 0 10px;
+        margin: 0 15px;
+    }
+
+        section.links a::before,
+        section.links a::after {
+            pointer-events: none;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            -webkit-font-smoothing: antialiased;
+            font-smoothing: antialiased;
+        }
+
+/* Flip */
+.link-flip a {
+    -webkit-transition: color 0.8s;
+    transition: color 0.8s;
+    -webkit-perspective: 600px;
+    perspective: 600px;
+    -webkit-perspective-origin: 50% 100%;
+    perspective-origin: 50% 100%;
+}
+
+    .link-flip a:hover,
+    .link-flip a:focus {
+        color: #000;
+    }
+
+    .link-flip a::before,
+    .link-flip a::after {
+        position: absolute;
+        top: 0;
+        left: -4px;
+        z-index: -1;
+        box-sizing: content-box;
+        padding: 0 4px;
+        width: 100%;
+        height: 100%;
+        content: '';
+    }
+
+    .link-flip a::before {
+        background-color: #fff;
+        -webkit-transition: -webkit-transform 0.2s;
+        transition: transform 0.2s;
+        -webkit-transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+        transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+        -webkit-transform: rotateX(90deg);
+        transform: rotateX(90deg);
+        -webkit-transform-origin: 50% 100%;
+        transform-origin: 50% 100%;
+    }
+
+    .link-flip a:hover::before,
+    .link-flip a:focus::before {
+        -webkit-transform: rotateX(0deg);
+        transform: rotateX(0deg);
+    }
+
+    .link-flip a::after {
+        border-bottom: 2px solid #fff;
+    }
+
+@media only screen and (max-width : 768px) {
+    .pipes .main-title {
+        font-size: 3em;
+    }
+
+    section.links {
+        font-size: 10px;
+        letter-spacing: 0.03em;
+    }
+
+        section.links a {
+            position: relative;
+            display: inline-block;
+            outline: none;
+            vertical-align: bottom;
+            text-decoration: none;
+            white-space: nowrap;
+            color: #fff;
+            padding: 0 5px;
+            margin: 0 10px;
+        }
+}
